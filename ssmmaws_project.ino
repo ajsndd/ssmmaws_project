@@ -1,6 +1,7 @@
 
 #include "esp32-hal-timer.h"
 
+/*
 #ifdef ESP32
   #pragma message "Compiling for ESP32"
 #else
