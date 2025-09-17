@@ -1,5 +1,5 @@
-# amys_repo-stps-ssmmaws
-  Smart Soil Moisture Monitoring and Automatic Watering System
+# Amy's-stps-projetc -> ssmmaws
+  # Smart Soil Moisture Monitoring and Automatic Watering System
 # Objective
   Design a system that continuously monitors the moisture level of the soil and automatically waters the plant when moisture falls below a specific threshold.
 
