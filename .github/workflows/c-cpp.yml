@@ -1,4 +1,4 @@
-name: Arduino CI
+name: Build ESP32 Sketch
 
 on:
   push:
@@ -16,11 +16,13 @@ jobs:
         curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
         sudo mv bin/arduino-cli /usr/local/bin/
 
-    - name: Setup Arduino Core
+    - name: Setup ESP32 Core
       run: |
+        arduino-cli config init
+        arduino-cli config add board_manager.additional_urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
         arduino-cli core update-index
-        arduino-cli core install arduino:avr
+        arduino-cli core install esp32:esp32@3.3.0
 
     - name: Compile Sketch
       run: |
-        arduino-cli compile --fqbn arduino:avr:uno ./ssmmaws_project.ino
+        arduino-cli compile --fqbn esp32:esp32:esp32dev ./ssmmaws_project.ino
