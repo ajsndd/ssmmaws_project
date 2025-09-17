@@ -7,6 +7,7 @@
   #error "Not compiling for ESP32"
 #endif
 
+
 /* configurations */
 #define DIRECT_ADC_VAL 0
 #define AVERAGE_ADC_VAL 1
