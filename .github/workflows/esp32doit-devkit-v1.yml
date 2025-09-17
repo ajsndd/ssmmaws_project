@@ -1,4 +1,4 @@
-name: Build ESP32 Sketch
+name: Build ESP32 Sketch with Cache
 
 on:
   push:
@@ -9,10 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    # Cache Arduino CLI core and config files  
+    - uses: actions/checkout@v4
+
+    # Cache Arduino CLI core and config files
     - name: Cache Arduino CLI folder
       uses: actions/cache@v3
       with:
@@ -20,26 +19,21 @@ jobs:
         key: ${{ runner.os }}-arduino15-${{ hashFiles('**/*.ino') }}
         restore-keys: |
           ${{ runner.os }}-arduino15-
-          
+
     - name: Install Arduino CLI
       run: |
         curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
         sudo mv bin/arduino-cli /usr/local/bin/
 
-    - name: Set up Arduino CLI Config
+    - name: Configure Arduino CLI
       run: |
-        mkdir -p ~/.arduino15
-        arduino-cli config init --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+        arduino-cli config init
+        arduino-cli config add board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
-    - name: Install ESP32 Platform
+    - name: Install ESP32 Core (if missing)
       run: |
         arduino-cli core update-index
-        arduino-cli core install esp32:esp32@3.3.0
-        arduino-cli core list
-        arduino-cli board listall | grep esp32
+        arduino-cli core install esp32:esp32@3.3.0 || echo "Core already installed"
 
     - name: Compile Sketch
-      run: |
-        arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 .
-
-       
+      run: arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 .
