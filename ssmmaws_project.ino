@@ -19,12 +19,6 @@
 #define drySoil 2600   // Define min value we consider soil 'dry'
 #define openAir 2860   // Define min value we consider sensor out
 
-// Define thresholds
-#define DRY_THRESHOLD 20
-#define OPTIMAL_THRESHOLD 50
-#define WET_THRESHOLD 1840
-
-
 // Define analog input
 #define sensorPin A0
 #define NUM_READINGS 500
