@@ -13,11 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: configure
+
+    - name: Install Autotools
+      run: sudo apt-get update && sudo apt-get install -y autoconf automake libtool
+
+    - name: Generate configure script
+      run: autoreconf -i
+
+    - name: Configure
       run: ./configure
-    - name: make
+
+    - name: Build
       run: make
-    - name: make check
+
+    - name: Test
       run: make check
-    - name: make distcheck
+
+    - name: Distcheck
       run: make distcheck
