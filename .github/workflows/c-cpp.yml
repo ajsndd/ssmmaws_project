@@ -25,4 +25,4 @@ jobs:
 
     - name: Compile Sketch
       run: |
-        arduino-cli compile --fqbn esp32:esp32:esp32dev ./ssmmaws_project
+        arduino-cli compile --fqbn esp32:esp32:esp32dev
