@@ -3,6 +3,9 @@ name: Build ESP32 Sketch with Cache
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+
 
 jobs:
   build:
