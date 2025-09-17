@@ -31,6 +31,6 @@ jobs:
 
     - name: Compile Sketch
       run: |
-        arduino-cli compile --fqbn esp32:esp32:esp32dev .
+        arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1v .
 
        
