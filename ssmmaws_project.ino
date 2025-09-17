@@ -6,6 +6,14 @@
 #else
   #error "Not compiling for ESP32"
 #endif
+
+/* configurations */
+
+#define DIRECT_ADC_VAL 0
+#define AVERAGE_ADC_VAL 1
+
+#define CALCULATION_MODE AVERAGE_ADC_VAL
+
 /* Change these values based on your observations */
 #define wetSoil 1600   // Define max value we consider soil 'wet'
 #define drySoil 2600   // Define min value we consider soil 'dry'
@@ -130,6 +138,8 @@ void setup() {
 
 void loop() {
 
+#ifdef CALCULATION_MODE
+  
   int sensorValues[NUM_READINGS];
   int averageMoistureLevel;
 
@@ -161,7 +171,7 @@ void loop() {
   }
 
 
-#ifdef NOT_AVG  
+#else  
 
   
   // Read the Analog Input and print it
