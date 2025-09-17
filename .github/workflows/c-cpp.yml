@@ -1,10 +1,8 @@
-name: C/C++ CI
+name: Arduino CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   build:
@@ -13,20 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y autoconf automake libtool
+    - name: Install Arduino CLI
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+        sudo mv bin/arduino-cli /usr/local/bin/
 
-    - name: Generate configure
-      run: autoreconf -i
+    - name: Setup Arduino Core
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install arduino:avr
 
-    - name: Configure
-      run: ./configure
-
-    - name: Build
-      run: make
-
-    - name: Test
-      run: make check
-
-    - name: Distcheck
-      run: make distcheck
+    - name: Compile Sketch
+      run: |
+        arduino-cli compile --fqbn arduino:avr:uno ./ssmmaws_project
