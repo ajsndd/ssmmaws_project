@@ -23,4 +23,4 @@ jobs:
 
     - name: Compile Sketch
       run: |
-        arduino-cli compile --fqbn arduino:avr:uno ./ssmmaws_project
+        arduino-cli compile --fqbn arduino:avr:uno ./ssmmaws_project.ino
