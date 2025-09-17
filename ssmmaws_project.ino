@@ -7,8 +7,8 @@
   #error "Not compiling for ESP32"
 #endif
 
-/* configurations */
 
+/* configurations */
 #define DIRECT_ADC_VAL 0
 #define AVERAGE_ADC_VAL 1
 
@@ -16,7 +16,7 @@
 
 /* Change these values based on your observations */
 #define wetSoil 1600   // Define max value we consider soil 'wet'
-#define drySoil 2600   // Define min value we consider soil 'dry'
+#define drySoil 2400   // Define min value we consider soil 'dry'
 #define openAir 2860   // Define min value we consider sensor out
 
 // Define analog input
