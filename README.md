@@ -69,8 +69,8 @@ Design and implement an **automated irrigation system** that:
 ---
 
 ## 📸 Example Setup (Optional Image)
-*<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f35a9f3-7981-4e07-bb5d-aa676e0bfe2e" />
-*  
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f35a9f3-7981-4e07-bb5d-aa676e0bfe2e" />
+
 
 ---
 
