@@ -16,8 +16,10 @@ Design and implement an **automated irrigation system** that:
 ---
 
 ## 📂 Project Structure
-ssmmaws_project/
-└── ssmmaws_avg.ino # Arduino project file
+
+  ssmmaws_project/
+  
+  └── ssmmaws_avg.ino # Arduino project file
 
 
 ---
