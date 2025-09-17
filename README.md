@@ -26,7 +26,7 @@ ssmmaws_project/
 ## 🧩 Components Needed
 
 ### 1️⃣ ⚡ Hardware
-- **Microcontroller**: Arduino Uno / ESP32 / Raspberry Pi Pico  
+- **Microcontroller**:ESP32  
 - **Soil Moisture Sensor**: Capacitive (preferred for durability)  
 - **Water Pump**: 5V/12V mini submersible pump  
 - **Relay Module** or transistor circuit (to drive the pump)  
@@ -42,8 +42,7 @@ ssmmaws_project/
 ---
 
 ### 2️⃣ 💻 Software
-- **Arduino IDE** (for Arduino boards)  
-- **MicroPython** (for ESP32 / Pico boards)  
+- **Arduino IDE** (for ESP32)  
 
 🔹 *Optional Integrations*:
 - [Blynk](https://blynk.io/) for mobile control  
