@@ -7,7 +7,7 @@
 #else
   #error "Not compiling for ESP32"
 #endif
-
+*/
 
 /* configurations */
 #define DIRECT_ADC_VAL 0
