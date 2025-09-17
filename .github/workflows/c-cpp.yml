@@ -16,13 +16,18 @@ jobs:
         curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
         sudo mv bin/arduino-cli /usr/local/bin/
 
-    - name: Setup ESP32 Core
+    - name: Setup Arduino CLI Config
       run: |
         arduino-cli config init
         arduino-cli config add board_manager.additional_urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        cat ~/.arduino15/arduino-cli.yaml
+
+    - name: Install ESP32 Platform
+      run: |
         arduino-cli core update-index
         arduino-cli core install esp32:esp32@3.3.0
+        arduino-cli core list
 
     - name: Compile Sketch
       run: |
-        arduino-cli compile --fqbn esp32:esp32:esp32dev
+        arduino-cli compile --fqbn esp32:esp32:esp32dev .
